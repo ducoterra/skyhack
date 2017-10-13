@@ -1,7 +1,12 @@
+/*
+ * Author: Reese, Alex, Alicia
+ * Date: 10/13/2017
+ * The MainActivity sets up the fragment placeholder, and presenter for use
+ */
 package com.aliciareesealex.milesperknowledge;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
