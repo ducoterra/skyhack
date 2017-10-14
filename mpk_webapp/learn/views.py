@@ -4,7 +4,8 @@ def search(request):
     '''
     returns the search screen for users to enter their flight info
     '''
-    siteDict = {}
+    siteDict = {'course' : 'this is a test'}
+    siteDict = checkRequest(request, siteDict)
     return render(request, 'learn/search.html', siteDict)
 
 def chooseTopic(request):
@@ -28,3 +29,16 @@ def courseProgress(request):
     '''
     siteDict = {}
     return render(request, 'learn/progress.html', siteDict)
+
+def checkRequest(request, siteDict):
+    '''
+    checks the request for POST messages
+
+    Returns a string message to be sent back to the site
+    for more info.
+    '''
+    if request.method == 'POST':
+        if 'search_flight' in request.POST:
+            depart_id = request.POST['depart_id'].strip()
+            siteDict.update({'depart_id' : depart_id})
+    return siteDict
