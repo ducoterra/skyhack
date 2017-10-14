@@ -6,8 +6,12 @@ package com.aliciareesealex.milesperknowledge.model;
  * Store and retrieve data
  */
 
-public class Achievement {
-	private int achievementID;
+import com.aliciareesealex.milesperknowledge.ui.Contract;
+
+public class Achievement implements Contract.MPKModel.AchievementModel {
+    private int achievementID;
     private int ranking;
     private int points;
+
+
 }

@@ -6,7 +6,9 @@ package com.aliciareesealex.milesperknowledge.model;
  * Store and retrieve data
  */
 
-public class Airport {
+import com.aliciareesealex.milesperknowledge.ui.Contract;
+
+public class Airport implements Contract.MPKModel.AirportModel {
     private String airportCode;
     private String state;
     private String city;

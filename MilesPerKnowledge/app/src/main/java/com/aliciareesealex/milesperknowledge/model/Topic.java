@@ -6,7 +6,9 @@ package com.aliciareesealex.milesperknowledge.model;
  * Store and retrieve data
  */
 
-public class Topic {
+import com.aliciareesealex.milesperknowledge.ui.Contract;
+
+public class Topic implements Contract.MPKModel.TopicModel {
     private String courseID;
     private String name;
     private int time;

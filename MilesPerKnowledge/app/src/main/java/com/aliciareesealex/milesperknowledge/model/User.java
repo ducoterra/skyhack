@@ -6,7 +6,9 @@ package com.aliciareesealex.milesperknowledge.model;
  * Store and retrieve data
  */
 
-public class User {
+import com.aliciareesealex.milesperknowledge.ui.Contract;
+
+public class User implements Contract.MPKModel.UserModel {
     private String firstName;
     private String lastName;
     private String Username;
