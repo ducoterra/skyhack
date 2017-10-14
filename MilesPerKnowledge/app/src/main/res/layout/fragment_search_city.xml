@@ -6,7 +6,7 @@
     tools:context="com.aliciareesealex.milesperknowledge.SearchCityFragment">
 
     <SearchView
-        android:id="@+id/searchView2"
+        android:id="@+id/searchView_fromDestination"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginBottom="28dp"
@@ -14,35 +14,34 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="152dp"
         android:iconifiedByDefault="false"
-        android:queryHint="From Destionation"
-        app:layout_constraintBottom_toTopOf="@+id/searchView6"
+        android:queryHint="From Destination"
+        app:layout_constraintBottom_toTopOf="@+id/searchView_toDestination"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <SearchView
-        android:id="@+id/searchView6"
+        android:id="@+id/searchView_toDestination"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="37dp"
+        android:layout_marginBottom="120dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:iconifiedByDefault="false"
-        android:queryHint="To Destionation"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        android:queryHint="To Destination"
+        app:layout_constraintBottom_toTopOf="@+id/button_search"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="146dp"
-        android:text="Search"
+        android:layout_marginBottom="75dp"
+        android:text="@string/button_search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView6" />
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>
