@@ -10,6 +10,6 @@ package com.aliciareesealex.milesperknowledge.ui;
 public interface Contract {
 	void showToastMessage(String message);
 	interface MPKView {
-		interface 		
+//		interface
 	}
 }
