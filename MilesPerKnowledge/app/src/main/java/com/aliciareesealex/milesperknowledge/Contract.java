@@ -1,4 +1,4 @@
-package com.aliciareesealex.milesperknowledge.ui;
+package com.aliciareesealex.milesperknowledge;
 
 /**
  * Name: Alex Oladele
