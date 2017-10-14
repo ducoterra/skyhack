@@ -12,7 +12,7 @@ import android.view.ViewGroup;
  * A simple {@link Fragment} subclass.
  */
 public class SubjectViewFragment extends Fragment {
-
+    static String TAG = SubjectViewFragment.class.getCanonicalName();
 
     public SubjectViewFragment() {
         // Required empty public constructor

@@ -12,7 +12,7 @@ import android.view.ViewGroup;
  * A simple {@link Fragment} subclass.
  */
 public class SearchAirportFragment extends Fragment {
-
+    static String TAG = SearchAirportFragment.class.getCanonicalName();
 
     public SearchAirportFragment() {
         // Required empty public constructor
