@@ -25,13 +25,13 @@ public class MainActivity extends AppCompatActivity {
 	//    ======================== VARIABLES ========================
 //	Class Tag
 	static String TAG = MainActivity.class.getCanonicalName();
-//	Permissions
+	//	Permissions
 	public final int READ_WRITE_EXTERNAL_STORAGE_PERMISSION = 72;
-//	Widgets
+	//	Widgets
 	@BindView(R.id.layout_root)
 	View rootLayout; //Binds root layout xml to variable
 	//  Firebase
-	private FirebaseAnalytics firebaseAnalytics;
+	private FirebaseAnalytics firebaseAnalytics = null;
 
 
 	//    ======================== INTERFACE OVERRIDE METHODS ========================
@@ -43,9 +43,11 @@ public class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
 //		Initialize Firebase analytics
 		firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+//		Button root = findViewById(R.id.layout_root); // todo FORCES CRASH
+
 
 	}
 
@@ -111,4 +113,16 @@ public class MainActivity extends AppCompatActivity {
 			}
 		}
 	}
+
+	/**
+	 * Switches to the Search By Airport fragment
+	 */
+	private void switchToSearchFragment() {
+		SearchAirportFragment searchAirportFragment = new SearchAirportFragment();
+		getSupportFragmentManager()
+				.beginTransaction()
+				.add(R.id.fragment_search_airport, searchAirportFragment, SearchAirportFragment.TAG)
+				.commit();
+	}
+
 }
