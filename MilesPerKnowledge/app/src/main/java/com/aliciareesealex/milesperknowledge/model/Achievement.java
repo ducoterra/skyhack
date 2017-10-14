@@ -9,4 +9,6 @@ package com.aliciareesealex.milesperknowledge.model;
 
 public class Achievement {
 	private int achievementID;
+    private int Ranking;
+    private int Points;
 }
