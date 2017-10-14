@@ -7,13 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.aliciareesealex.milesperknowledge.Contract;
 import com.aliciareesealex.milesperknowledge.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SearchAirportFragment extends Fragment {
+public class SearchAirportFragment extends Fragment implements Contract.MPKView.SearchAirportFragmentView {
     static String TAG = SearchAirportFragment.class.getCanonicalName();
 
     public SearchAirportFragment() {

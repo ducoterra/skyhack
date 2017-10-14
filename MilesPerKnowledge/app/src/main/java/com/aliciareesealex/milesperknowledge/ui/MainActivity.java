@@ -16,12 +16,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.aliciareesealex.milesperknowledge.Contract;
 import com.aliciareesealex.milesperknowledge.R;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import butterknife.BindView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Contract.MPKView.MainActivityView {
 
 	//    ======================== VARIABLES ========================
 //	Class Tag

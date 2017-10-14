@@ -1,6 +1,6 @@
 package com.aliciareesealex.milesperknowledge.model;
 
-import com.aliciareesealex.milesperknowledge.ui.Contract;
+import com.aliciareesealex.milesperknowledge.Contract;
 
 /*
  * Author: Reese, Alex, Alicia

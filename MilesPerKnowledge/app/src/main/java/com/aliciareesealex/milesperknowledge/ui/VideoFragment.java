@@ -7,13 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.aliciareesealex.milesperknowledge.Contract;
 import com.aliciareesealex.milesperknowledge.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class VideoFragment extends Fragment {
+public class VideoFragment extends Fragment implements Contract.MPKView.VideoFragmentView{
     static String TAG = VideoFragment.class.getCanonicalName();
 
     public VideoFragment() {

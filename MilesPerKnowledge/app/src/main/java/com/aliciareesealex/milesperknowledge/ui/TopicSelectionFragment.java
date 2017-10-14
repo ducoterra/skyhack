@@ -7,13 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.aliciareesealex.milesperknowledge.Contract;
 import com.aliciareesealex.milesperknowledge.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TopicSelectionFragment extends Fragment {
+public class TopicSelectionFragment extends Fragment implements Contract.MPKView.TopicSelectionFragmentView {
     static String TAG = TopicSelectionFragment.class.getCanonicalName();
 
     public TopicSelectionFragment() {
