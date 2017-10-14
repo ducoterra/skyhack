@@ -5,7 +5,7 @@ package com.aliciareesealex.milesperknowledge.model;
  */
 
 public class Course {
-    private String CourseID;
+    private String courseID;
     private String name;
     private int time;
     private String subject;

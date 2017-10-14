@@ -5,7 +5,7 @@ package com.aliciareesealex.milesperknowledge.model;
  */
 
 public class Airport {
-    private String AirportCode;
+    private String airportCode;
     private String state;
     private String city;
 }
