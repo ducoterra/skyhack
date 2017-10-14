@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SubjectViewFragment extends Fragment {
-    static String TAG = SubjectViewFragment.class.getCanonicalName();
+public class TopicSelectionFragment extends Fragment {
+    static String TAG = TopicSelectionFragment.class.getCanonicalName();
 
-    public SubjectViewFragment() {
+    public TopicSelectionFragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +23,7 @@ public class SubjectViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_subject_view, container, false);
+        return inflater.inflate(R.layout.fragment_topic_selection, container, false);
     }
 
 }
