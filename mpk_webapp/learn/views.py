@@ -9,19 +9,17 @@ def search(request):
     siteDict = checkRequest(request, siteDict)
     return render(request, 'learn/search.html', siteDict)
 
-def chooseTopic(request):
+def chooseTopic(request, siteDict):
     '''
     returns a list of topics for the user to choose from
     '''
-    siteDict = {}
     return render(request, 'learn/topics.html', siteDict)
 
-def chooseCourse(request):
+def chooseCourse(request, siteDict):
     '''
     returns the list of available courses for the user to take based on their
     selection
     '''
-    siteDict = {}
     return render(request, 'learn/courses.html', siteDict)
 
 def courseProgress(request):
@@ -44,4 +42,6 @@ def checkRequest(request, siteDict):
             arrive_id = request.POST['arrive_id'].strip().upper()
             time = getFlightInfo(startId = depart_id, endId = arrive_id)
             siteDict.update({'flight_time' : time})
+            chooseCourse(request, siteDict)
+
     return siteDict

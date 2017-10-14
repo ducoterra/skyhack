@@ -32,6 +32,7 @@ def getVideoSelection(subject = None):
 
     r = requests.get('http://www.khanacademy.org/api/v1/topictree')
     data = r.json()
+    courseList = []
 
     for sub1 in data['children'][subjList[subject]]['children']:
         for sub2 in sub1['children']:
@@ -39,8 +40,9 @@ def getVideoSelection(subject = None):
                 video = json.loads(requests.get('http://www.khanacademy.org/api/v1/topic/' +\
                     sub3['slug'] + '/videos').text)
                 try:
-                    print(video[0]['translated_title'] + ", " + str(video[0]['duration']))
+                    courseList.append(video[0]['translated_title'] + ", " + str(video[0]['duration']))
+                    print(courseList)
                 except:
                     print('')
-
-getVideoSelection(subject = 'math')
+                if len(courseList) == 10:
+                    return courseList
