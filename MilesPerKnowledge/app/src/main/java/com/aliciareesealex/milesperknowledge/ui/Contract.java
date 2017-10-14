@@ -70,23 +70,23 @@ public interface Contract {
 	}
 
 	interface MPKModel {
-		interface Achievement extends MPKModel {
+		interface AchievementModel extends MPKModel {
 
 		}
 
-		interface Airport extends MPKModel {
+		interface AirportModel extends MPKModel {
 
 		}
 
-		interface Flight extends MPKModel {
+		interface FlightModel extends MPKModel {
 
 		}
 
-		interface Topic extends MPKModel {
+		interface TopicModel extends MPKModel {
 
 		}
 
-		interface User extends MPKModel {
+		interface UserModel extends MPKModel {
 
 		}
 	}
