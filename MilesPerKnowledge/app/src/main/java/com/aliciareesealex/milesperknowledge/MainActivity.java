@@ -21,19 +21,17 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import butterknife.BindView;
 
 public class MainActivity extends AppCompatActivity {
+
 	//    ======================== VARIABLES ========================
 //	Class Tag
 	static String TAG = MainActivity.class.getCanonicalName();
-
-//  Firebase
-	private FirebaseAnalytics firebaseAnalytics;
-
 //	Permissions
 	public final int READ_WRITE_EXTERNAL_STORAGE_PERMISSION = 72;
-
 //	Widgets
 	@BindView(R.id.layout_root)
 	View rootLayout; //Binds root layout xml to variable
+	//  Firebase
+	private FirebaseAnalytics firebaseAnalytics;
 
 
 	//    ======================== INTERFACE OVERRIDE METHODS ========================

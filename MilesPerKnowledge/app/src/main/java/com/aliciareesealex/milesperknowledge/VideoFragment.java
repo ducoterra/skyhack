@@ -12,7 +12,7 @@ import android.view.ViewGroup;
  * A simple {@link Fragment} subclass.
  */
 public class VideoFragment extends Fragment {
-
+    static String TAG = VideoFragment.class.getCanonicalName();
 
     public VideoFragment() {
         // Required empty public constructor
