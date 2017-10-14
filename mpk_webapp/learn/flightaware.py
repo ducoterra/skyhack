@@ -10,8 +10,8 @@ username = "ducoterra"
 apiKey = "5602c42a00d7b60e21ee8af46c59ec72daec436c"
 fxmlUrl = "https://flightxml.flightaware.com/json/FlightXML3/"
 
-payload = {'airport_code':'KSFO', 'type':'enroute',
-    'howMany':'10'}
+payload = {'airport_code':'CLE', 'type':'enroute',
+    'howMany':'1'}
 response = requests.get(fxmlUrl + "AirportBoards",
     params=payload, auth=(username, apiKey))
 
