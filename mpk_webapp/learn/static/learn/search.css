@@ -1,0 +1,12 @@
+.input {
+    margin-top: 10px;
+    border: 2px solid maroon;
+    border-radius: 5px;
+}
+
+.button {
+    margin-top: 10px;
+    border: 2px solid maroon;
+    border-radius: 5px;
+    background-color: white;
+}

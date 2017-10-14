@@ -1,10 +1,11 @@
 from django.shortcuts import render
+from .flightaware import *
 
 def search(request):
     '''
     returns the search screen for users to enter their flight info
     '''
-    siteDict = {'course' : 'this is a test'}
+    siteDict = {}
     siteDict = checkRequest(request, siteDict)
     return render(request, 'learn/search.html', siteDict)
 
@@ -39,6 +40,8 @@ def checkRequest(request, siteDict):
     '''
     if request.method == 'POST':
         if 'search_flight' in request.POST:
-            depart_id = request.POST['depart_id'].strip()
-            siteDict.update({'depart_id' : depart_id})
+            depart_id = request.POST['depart_id'].strip().upper()
+            arrive_id = request.POST['arrive_id'].strip().upper()
+            time = getFlightInfo(startId = depart_id, endId = arrive_id)
+            siteDict.update({'flight_time' : time})
     return siteDict

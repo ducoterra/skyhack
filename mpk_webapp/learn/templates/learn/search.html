@@ -12,17 +12,18 @@ KEEP IT UNDER 80 COLUMNS (as much as possible)
 </head>
 
 <body>
-    <p>{{course}}</p>
-    <p>{{depart_id}}</p>
+    <p>{{flight_time}}</p>
+    <div>
     <form class = "col-xs-12 test" method="POST">
         {% csrf_token %}
-
-        <input  name = 'depart_id' id = "depart_id"
-                class = "col-xs-12 input" placeholder= "Departure City">
+        <input  name = "depart_id" id = "depart_id"
+                class = "col-xs-6 col-xs-offset-3 input" placeholder= "Departure Airport">
         </input>
-
+        <input  name = "arrive_id" id = "arrive_id"
+                class = "col-xs-6 col-xs-offset-3 input" placeholder= "Arrival Airport">
+        </input>
         <button id = "submit_flight_btn" name = "search_flight" type="submit"
-                        class = "col-xs-12 input">
+                        class = "col-xs-4 col-xs-offset-4 button">
             add
         </button>
     </form>
@@ -30,9 +31,9 @@ KEEP IT UNDER 80 COLUMNS (as much as possible)
 
 <!-- Bootstrap Resources -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<link rel='stylesheet' href="{% static 'Dashboard/bootstrap/css/bootstrap.min.css' %}" type ='text/css'/>
-<script src = "{% static 'Dashboard/bootstrap/js/bootstrap.min.js' %}"></script>
+<link rel='stylesheet' href="{% static 'learn/bootstrap/css/bootstrap.min.css' %}" type ='text/css'/>
+<script src = "{% static 'learn/bootstrap/js/bootstrap.min.js' %}"></script>
 <!-- Dashboard Resources -->
 <link rel='stylesheet' href="{% static 'learn/search.css' %}" type = 'text/css'/>
-<script src = "{% static 'learn/learn.js' %}"></script>
+<script src = "{% static 'learn/search.js' %}"></script>
 </html>
