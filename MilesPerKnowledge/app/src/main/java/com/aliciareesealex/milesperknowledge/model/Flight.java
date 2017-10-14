@@ -1,9 +1,10 @@
 package com.aliciareesealex.milesperknowledge.model;
 
-/**
- * Created by Leeshie on 10/14/17.
+/*
+ * Author: Reese, Alex, Alicia
+ * Date: 10/13/2017
+ * Store and retrieve data
  */
-
 public class Flight {
     private int flightNumber;
     private String startCode;

@@ -1,10 +1,9 @@
 package com.aliciareesealex.milesperknowledge.model;
 
-/**
- * Name: Alex Oladele
- * Unique-ID: OLADELAA
- * Date: 10/14/17
- * Project: MilesPerKnowledge
+/*
+ * Author: Reese, Alex, Alicia
+ * Date: 10/13/2017
+ * Store and retrieve data
  */
 
 public class Achievement {
