@@ -6,7 +6,7 @@ package com.aliciareesealex.milesperknowledge.model;
  * Store and retrieve data
  */
 
-public class Course {
+public class Topic {
     private String courseID;
     private String name;
     private int time;
