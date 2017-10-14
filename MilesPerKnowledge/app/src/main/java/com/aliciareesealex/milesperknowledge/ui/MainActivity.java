@@ -3,7 +3,7 @@
  * Date: 10/13/2017
  * The MainActivity sets up the fragment placeholder, and presenter for use
  */
-package com.aliciareesealex.milesperknowledge;
+package com.aliciareesealex.milesperknowledge.ui;
 
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.aliciareesealex.milesperknowledge.R;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import butterknife.BindView;
