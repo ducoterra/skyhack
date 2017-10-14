@@ -2,8 +2,6 @@
 
 # Created by https://www.gitignore.io/api/linux,macos,xcode,python,django,windows,android,java-web,visualstudiocode
 
-### Django ###
-
 ### Android ###
 # Built application files
 *.apk
