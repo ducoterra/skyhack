@@ -21,6 +21,7 @@ import com.aliciareesealex.milesperknowledge.R;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements Contract.MPKView.MainActivityView {
 
@@ -35,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements Contract.MPKView.
 	//  Firebase
 	private FirebaseAnalytics firebaseAnalytics = null;
 
-
 	//    ======================== INTERFACE OVERRIDE METHODS ========================
 
 	/**
@@ -48,6 +48,11 @@ public class MainActivity extends AppCompatActivity implements Contract.MPKView.
 //		Initialize Firebase analytics
 		firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
+//		Binds All views
+		ButterKnife.bind(this);
+
+//		Switches to Search By Airport fragment
+		switchToSearchFragment();
 //		Button root = findViewById(R.id.layout_root); // todo FORCES CRASH
 
 
@@ -123,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements Contract.MPKView.
 		SearchAirportFragment searchAirportFragment = new SearchAirportFragment();
 		getSupportFragmentManager()
 				.beginTransaction()
-				.add(R.id.fragment_search_airport, searchAirportFragment, SearchAirportFragment.TAG)
+				.add(R.id.layout_root, searchAirportFragment, SearchAirportFragment.TAG)
 				.commit();
 	}
 
