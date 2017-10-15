@@ -34,25 +34,33 @@ def checkRequest(request, siteDict):
     if request.method == 'POST':
 
         if 'search_flight' in request.POST:
-            depart_id = request.POST['depart_id'].strip().upper()
-            arrive_id = request.POST['arrive_id'].strip().upper()
-            flighttime = getFlightInfo(startId = depart_id, endId = arrive_id)
-            siteDict.update({'flight_time' : time})
-            hours = str(flighttime // 60)
-            minutes = flighttime % 60
-            if minutes < 10:
-                minutes = str(minutes) + '0'
-            else:
-                minutes = str(minutes)
-            strTime = hours + ":" + minutes
-            siteDict.update({'str_time' : strTime})
-            siteDict.update({'topic_list' : getTopics()})
-            siteDict.update({'redirect' : 'topics'})
+            try:
+                depart_id = request.POST['depart_id'].strip().upper()
+                arrive_id = request.POST['arrive_id'].strip().upper()
+                flighttime = getFlightInfo(startId = depart_id, endId = arrive_id)
+                siteDict.update({'flight_time' : time})
+                hours = str(flighttime // 60)
+                minutes = flighttime % 60
+                if minutes < 10:
+                    minutes = str(minutes) + '0'
+                else:
+                    minutes = str(minutes)
+                strTime = hours + ":" + minutes
+                siteDict.update({'str_time' : strTime})
+                siteDict.update({'topic_list' : getTopics()})
+                siteDict.update({'redirect' : 'topics'})
+            except:
+                siteDict.update({'failure' : 'departure or arrival not valid'})
 
         if 'search_course' in request.POST:
             print(request.POST)
             selection = request.POST['search_course']
             videoList = getSubSelection(subject = selection)
+            siteDict.update({'str_time' : request.POST['str_time']})
             siteDict.update({'video_list' : videoList})
             siteDict.update({'redirect' : 'courses'})
+
+        if 'done' in request.POST:
+            print(request.POST)
+            selections = request.POST['selections']
     return siteDict

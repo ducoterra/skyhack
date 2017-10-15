@@ -18,20 +18,37 @@ KEEP IT UNDER 80 COLUMNS (as much as possible)
 <body>
     <div class = heading>
         <h1 class = "col-xs-12 col-sm-8 col-sm-offset-2 title">Flight Time: {{str_time}}</h1>
-        {% for course in video_list %}
+        <h4 class = "col-xs-12 col-sm-4 col-sm-offset-2">Click a subject to dive deeper</h4>
+        <h4 class = "col-xs-12 col-sm-4">Click a checkbox to inlude a random selection from that subject</h4>
+        <h4 class = "col-xs-12">Scroll down and click "Done" when you are done</h4>
         <form class = "col-xs-12 test" method="POST">
             {% csrf_token %}
+            {% for course in video_list %}
             <button id = "{{course}}"
                 name = "search_course" type="submit" value = "{{course}}"
-                class = "button col-xs-12 col-sm-4 col-md-2 col-md-offset-5 col-sm-offset-4"
+                class = "button col-xs-11 col-sm-3 col-md-2 col-md-offset-5 col-sm-offset-4"
                 style  = "border: 2px solid black;
                             border-radius: 10px;
                             margin-top: 20px;
                             padding: 10px;
                             background-color: white;">
             {{course}}</button>
+            <input class = "col-xs-1" type = "checkbox" id = "multi"
+                name = "selections" value = "{{course}}"
+                style  = "border: 2px solid black;
+                            border-radius: 10px;
+                            margin-top: 30px;
+                            padding: 10px;
+                            background-color: white;"></input>
+
+            {% endfor %}
+            <input style = "display: none" name = "str_time" value = "{{str_time}}"></input>
+            <button id = "done"
+                name = "done" type="submit" value = "done"
+                class = "button col-xs-12 col-sm-4 col-md-2 col-md-offset-5 col-sm-offset-4">
+            Done!
+            </button>
         </form>
-        {% endfor %}
 </body>
 
 <!-- Bootstrap Resources -->
