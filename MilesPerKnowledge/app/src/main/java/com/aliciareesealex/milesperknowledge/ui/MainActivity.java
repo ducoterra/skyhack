@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.aliciareesealex.milesperknowledge.Contract;
 import com.aliciareesealex.milesperknowledge.R;
+import com.aliciareesealex.milesperknowledge.util.MySqlDB;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import butterknife.BindView;
@@ -51,6 +52,14 @@ public class MainActivity extends AppCompatActivity implements Contract.MPKView.
 //		Binds All views
 		ButterKnife.bind(this);
 
+//		Connect to DB
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				MySqlDB sqlDB = new MySqlDB();
+				sqlDB.connectToDatabase(getApplicationContext());
+			}
+		}).start();
 //		Switches to Search By Airport fragment
 		switchToSearchFragment();
 //		Button root = findViewById(R.id.layout_root); // todo FORCES CRASH
