@@ -1,0 +1,45 @@
+<!--
+TABS ARE 4 SPACES
+VAR NAMING IS variable_name
+KEEP IT UNDER 80 COLUMNS (as much as possible)
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name = 'viewport' content = 'width = device-width' initial-scale=1 meta-charset = "utf-8">
+    {% load staticfiles %}
+</head>
+<style>
+    body {
+        background-image: url("{% static 'learn/assets/background.png' %}");
+    }
+</style>
+<body>
+    <div class = heading>
+        <h1 class = "col-xs-12 col-sm-8 col-sm-offset-2 title">Flight Time: {{str_time}}</h1>
+        {% for video in video_list %}
+        <form class = "col-xs-12 test" method="POST">
+            {% csrf_token %}
+            <button id = "{{video}}"
+                name = "search_course" type="submit" value = "{{video}}"
+                class = "button col-xs-12 col-sm-4 col-md-2 col-md-offset-5 col-sm-offset-4"
+                style  = "border: 2px solid black;
+                            border-radius: 10px;
+                            margin-top: 20px;
+                            padding: 10px;
+                            background-color: white;">
+            {{video}}</button>
+            <input style = "display: none" name = "str_time" value = "{{str_time}}"></input>
+        </form>
+        {% endfor %}
+</body>
+
+<!-- Bootstrap Resources -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel='stylesheet' href="{% static 'learn/bootstrap/css/bootstrap.min.css' %}" type ='text/css'/>
+<script src = "{% static 'learn/bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- Dashboard Resources -->
+<link rel='stylesheet' href="{% static 'learn/topics.css' %}" type = 'text/css'/>
+<script src = "{% static 'learn/topics.js' %}"></script>
+</html>

@@ -13,16 +13,10 @@ def search(request):
         return render(request, 'learn/topics.html', siteDict)
     elif siteDict['redirect'] == 'courses':
         return render(request, 'learn/courses.html', siteDict)
+    elif siteDict['redirect'] == 'progress':
+        return render(request, 'learn/progress.html', siteDict)
     else:
         return render(request, 'learn/search.html', siteDict)
-
-def courseProgress(request):
-    '''
-    returns the user's in proress courses and completed courses in a list
-    '''
-    siteDict = {}
-    siteDict = checkRequest(request, siteDict)
-    return render(request, 'learn/progress.html', siteDict)
 
 def checkRequest(request, siteDict):
     '''
@@ -62,5 +56,7 @@ def checkRequest(request, siteDict):
 
         if 'done' in request.POST:
             print(request.POST)
-            selections = request.POST['selections']
+            siteDict.update({'str_time' : request.POST['str_time']})
+            siteDict.update({'selections' : request.POST['selections']})
+            siteDict.update({'redirect' : 'progress'})
     return siteDict
