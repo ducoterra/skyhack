@@ -26,10 +26,6 @@ public interface Contract {
 
 		}
 
-		interface SearchCityFragmentView extends MPKView {
-
-		}
-
 		interface TopicSelectionFragmentView extends MPKView {
 
 		}
@@ -56,9 +52,6 @@ public interface Contract {
 
 		}
 
-		interface SearchCityFragmentPresenter extends MPKPresenter {
-
-		}
 
 		interface TopicSelectionFragmentPresenter extends MPKPresenter {
 

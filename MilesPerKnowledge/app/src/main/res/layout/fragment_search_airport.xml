@@ -6,21 +6,35 @@
     android:layout_height="match_parent"
     tools:context="com.aliciareesealex.milesperknowledge.ui.SearchAirportFragment">
 
-
     <SearchView
-        android:id="@+id/searchView_flightNumber"
-        android:layout_width="0dp"
-        android:layout_height="62dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="196dp"
+        android:id="@+id/searchView_fromDestination"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="152dp"
         android:iconifiedByDefault="false"
-        android:queryHint="Flight Number"
-        app:layout_constraintBottom_toTopOf="@+id/button_search"
+        android:queryHint="Departure"
+        app:layout_constraintBottom_toTopOf="@+id/searchView_toDestination"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <SearchView
+        android:id="@+id/searchView_toDestination"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="120dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Arrival"
+        app:layout_constraintBottom_toTopOf="@+id/button_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_search"
