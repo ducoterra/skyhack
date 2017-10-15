@@ -14,7 +14,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="152dp"
         android:iconifiedByDefault="false"
-        android:queryHint="From Destination"
+        android:queryHint="Departure"
         app:layout_constraintBottom_toTopOf="@+id/searchView_toDestination"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -30,7 +30,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:iconifiedByDefault="false"
-        android:queryHint="To Destination"
+        android:queryHint="Arrival"
         app:layout_constraintBottom_toTopOf="@+id/button_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
