@@ -50,9 +50,9 @@ def checkRequest(request, siteDict):
             siteDict.update({'redirect' : 'topics'})
 
         if 'search_course' in request.POST:
+            print(request.POST)
             selection = request.POST['search_course']
-            print(selection)
-            videoList = getVideoSelection(subject = selection)
+            videoList = getSubSelection(subject = selection)
             siteDict.update({'video_list' : videoList})
             siteDict.update({'redirect' : 'courses'})
     return siteDict
