@@ -56,7 +56,14 @@ def checkRequest(request, siteDict):
 
         if 'done' in request.POST:
             print(request.POST)
+            selections = []
+            for key in request.POST:
+                if key.startswith('selections'):
+                    selections.append(request.POST[key])
+            courseOptions = []
+            for selection in selections:
+                courseOptions += drillDown(selection)
+            siteDict.update({'video_list' : courseOptions})
             siteDict.update({'str_time' : request.POST['str_time']})
-            siteDict.update({'selections' : request.POST['selections']})
             siteDict.update({'redirect' : 'progress'})
     return siteDict
