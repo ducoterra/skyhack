@@ -7,9 +7,37 @@ package com.aliciareesealex.milesperknowledge.model;
  */
 
 import com.aliciareesealex.milesperknowledge.Contract;
+import com.aliciareesealex.milesperknowledge.util.MySqlDB;
 
-public class Airport implements Contract.MPKModel.AirportModel {
+public class Airport extends MySqlDB implements Contract.MPKModel.AirportModel {
     private String airportCode;
     private String state;
     private String city;
+
+	public Airport() {
+	}
+
+	public String getAirportCode() {
+		return airportCode;
+	}
+
+	public void setAirportCode(String airportCode) {
+		this.airportCode = airportCode;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
 }
