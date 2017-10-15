@@ -4,7 +4,7 @@ Copyright 2017
 
 Contains the methods for dealing with khan academy api data
 '''
-import requests, json
+import requests, json, random
 
 def getTopics():
     return ['math', 'science', 'economics-finance-domain',
@@ -39,3 +39,15 @@ def getVideos(subject = None):
     for video in data:
         courseList.append(video['translated_title'] + ',' + str(video['duration']))
     return courseList
+
+def drillDown(subject = None):
+    '''
+    finds videos about a subject
+    '''
+    videos = getVideos(subject)
+    if videos is not None and len(videos) != 0:
+        return videos
+    children = getSubSelection(subject)
+    numChilds = len(children)
+    selection = random.randint(0, numChilds - 1)
+    return drillDown(children[selection])
