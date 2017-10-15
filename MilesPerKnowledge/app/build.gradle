@@ -34,17 +34,16 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-//    RetroFit lib for consuming API's
+    //    RetroFit lib for consuming API's
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
-
-//    Butterknife lib for binding views easily
+    //    Butterknife lib for binding views easily
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.jakewharton:butterknife-annotations:8.8.1'
-
-//    Espresso lib for testing
+    //    Espresso lib for testing
     androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
     androidTestCompile 'com.android.support.test:runner:1.0.1'
+    compile 'junit:junit:4.12'
 }
 
 
