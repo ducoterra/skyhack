@@ -5,28 +5,22 @@ def search(request):
     '''
     returns the search screen for users to enter their flight info
     '''
-    siteDict = {}
+    siteDict = {'redirect' : None}
     siteDict = checkRequest(request, siteDict)
-    return render(request, 'learn/search.html', siteDict)
 
-def chooseTopic(request, siteDict):
-    '''
-    returns a list of topics for the user to choose from
-    '''
-    return render(request, 'learn/topics.html', siteDict)
-
-def chooseCourse(request, siteDict):
-    '''
-    returns the list of available courses for the user to take based on their
-    selection
-    '''
-    return render(request, 'learn/courses.html', siteDict)
+    if siteDict['redirect'] == 'topics':
+        return render(request, 'learn/topics.html', siteDict)
+    elif siteDict['redirect'] == 'courses':
+        return render(request, 'learn/courses.html', siteDict)
+    else:
+        return render(request, 'learn/search.html', siteDict)
 
 def courseProgress(request):
     '''
     returns the user's in proress courses and completed courses in a list
     '''
     siteDict = {}
+    siteDict = checkRequest(request, siteDict)
     return render(request, 'learn/progress.html', siteDict)
 
 def checkRequest(request, siteDict):
@@ -42,6 +36,5 @@ def checkRequest(request, siteDict):
             arrive_id = request.POST['arrive_id'].strip().upper()
             time = getFlightInfo(startId = depart_id, endId = arrive_id)
             siteDict.update({'flight_time' : time})
-            chooseCourse(request, siteDict)
-
+            siteDict.update({'redirect' : 'topics'})
     return siteDict

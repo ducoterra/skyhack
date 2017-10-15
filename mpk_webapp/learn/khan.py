@@ -30,8 +30,17 @@ def getVideoSelection(subject = None):
     'partner-content': 7, 'talks-and-interviews': 8, 'college-careers-more': 9,
     'talent-search': 10, 'resources': 11, 'mappers': 12}
 
-    r = requests.get('http://www.khanacademy.org/api/v1/topictree')
-    data = r.json()
+    try:
+        f = open('khan.tree', 'r')
+        data = json.load(f)
+        # print('opened file')
+    except:
+        f = open('khan.tree', 'w')
+        r = requests.get('http://www.khanacademy.org/api/v1/topictree')
+        data = json.loads(r.text)
+        json.dump(data, f)
+        # print('file not found')
+
     courseList = []
 
     for sub1 in data['children'][subjList[subject]]['children']:
@@ -41,8 +50,8 @@ def getVideoSelection(subject = None):
                     sub3['slug'] + '/videos').text)
                 try:
                     courseList.append(video[0]['translated_title'] + ", " + str(video[0]['duration']))
-                    print(courseList)
+                    # print(courseList)
                 except:
-                    print('')
+                    # print('')
                 if len(courseList) == 10:
                     return courseList

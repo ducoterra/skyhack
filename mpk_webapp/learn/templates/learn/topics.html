@@ -1,0 +1,32 @@
+<!--
+TABS ARE 4 SPACES
+VAR NAMING IS variable_name
+KEEP IT UNDER 80 COLUMNS (as much as possible)
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name = 'viewport' content = 'width = device-width' initial-scale=1 meta-charset = "utf-8">
+    {% load staticfiles %}
+</head>
+
+<body>
+    <h1>hello</h1>
+    <p>{{flight_time}}</p>
+    <form class = "col-xs-12 test" method="POST">
+        {% csrf_token %}
+        {% for topic in topicList %}
+        <p>topic</p>
+        {% endfor %}
+    </form>
+</body>
+
+<!-- Bootstrap Resources -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel='stylesheet' href="{% static 'learn/bootstrap/css/bootstrap.min.css' %}" type ='text/css'/>
+<script src = "{% static 'learn/bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- Dashboard Resources -->
+<link rel='stylesheet' href="{% static 'learn/search.css' %}" type = 'text/css'/>
+<script src = "{% static 'learn/search.js' %}"></script>
+</html>
