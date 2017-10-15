@@ -15,7 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:iconifiedByDefault="false"
-        android:queryHint="Departure"
+        android:queryHint="Departure (Airport Code or City)"
         app:layout_constraintBottom_toTopOf="@+id/searchView_toDestination"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -31,18 +31,18 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:iconifiedByDefault="false"
-        android:queryHint="Arrival"
-        app:layout_constraintBottom_toTopOf="@+id/button_search"
+        android:queryHint="Arrival (Airport Code or City)"
+        app:layout_constraintBottom_toTopOf="@+id/button_next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button_search"
+        android:id="@+id/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="75dp"
-        android:text="@string/button_search"
+        android:text="@string/button_next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
