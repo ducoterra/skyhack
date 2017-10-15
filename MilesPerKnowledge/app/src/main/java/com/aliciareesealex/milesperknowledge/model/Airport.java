@@ -37,41 +37,43 @@ public class Airport implements Contract.MPKModel.AirportModel {
 
 	@Override
 	public String getAirportCode(Context context, String location) {
-		if (connect == null) {
-			connectToDB();
-			Log.d(TAG, "getAirportCode: ITS STILL NULL");
-		}
-		try {
-			String query;
-			if (location.length() == 3) {
-//			Create query string
-				query = "SELECT AirportCode FROM Airport WHERE AirportCode LIKE ?";
-			} else {
-				// TODO: 10/15/17 Figure out how to handle specificity
-				query = "SELECT AirportCode FROM Airport WHERE AirportCode LIKE ?";
+		if(airportCode == null) {
+			if (connect == null) {
+				connectToDB();
+				Log.d(TAG, "getAirportCode: ITS STILL NULL");
 			}
+			try {
+				String query;
+				if (location.length() == 3) {
+//			Create query string
+					query = "SELECT AirportCode FROM Airport WHERE AirportCode LIKE ?";
+				} else {
+					// TODO: 10/15/17 Figure out how to handle specificity
+					query = "SELECT AirportCode FROM Airport WHERE AirportCode LIKE ?";
+				}
 
-			if (connect != null) {
-				//			Prepares statement for use
-				preparedStatement = connect.prepareStatement(query);
+				if (connect != null) {
+					//			Prepares statement for use
+					preparedStatement = connect.prepareStatement(query);
 
 //			Sets the vals in the prepared statement
-				preparedStatement.setString(1, location + "%");
-				resultSet = preparedStatement.executeQuery();
+					preparedStatement.setString(1, location + "%");
+					resultSet = preparedStatement.executeQuery();
 
-				if (resultSet.first()) {
-					airportCode = resultSet.getString("AirportCode");
+					if (resultSet.first()) {
+						airportCode = resultSet.getString("AirportCode");
+						setAirportCode(airportCode);
+					} else {
+						airportCode = null;
+					}
 				} else {
-					airportCode = null;
+					Log.d(TAG, "getAirportCode: CONNECT IS NULL!");
 				}
-			} else {
 
-				Log.d(TAG, "getAirportCode: CONNECT IS NULL!");
+
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
-
-
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
 		return airportCode;
 	}

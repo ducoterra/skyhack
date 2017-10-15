@@ -1,6 +1,7 @@
 package com.aliciareesealex.milesperknowledge.presenter;
 
 import android.content.Context;
+import android.os.Bundle;
 
 import com.aliciareesealex.milesperknowledge.Contract;
 import com.aliciareesealex.milesperknowledge.model.Airport;
@@ -32,7 +33,10 @@ public class SearchAirportPresenter implements Contract.MPKPresenter.SearchAirpo
 		if (results.get(0) == null || results.get(1) == null) {
 			searchAirportView.showError();
 		} else {
-			searchAirportView.goToNextScreen();
+			Bundle bundle = new Bundle();
+			bundle.putString("code1",resultsList.get(0));
+			bundle.putString("code2",resultsList.get(1));
+			searchAirportView.goToNextScreen(bundle);
 		}
 	}
 

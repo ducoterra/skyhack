@@ -1,6 +1,7 @@
 package com.aliciareesealex.milesperknowledge;
 
 import android.content.Context;
+import android.os.Bundle;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public interface Contract {
 		interface SearchAirportFragmentView extends MPKView {
 			void showError();
 
-			void goToNextScreen();
+			void goToNextScreen(Bundle bundle);
 		}
 
 		interface TopicSelectionFragmentView extends MPKView {

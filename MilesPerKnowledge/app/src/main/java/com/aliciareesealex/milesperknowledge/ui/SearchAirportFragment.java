@@ -75,15 +75,16 @@ public class SearchAirportFragment extends Fragment implements Contract.MPKView.
 	}
 
 	@Override
-	public void goToNextScreen() {
+	public void goToNextScreen(Bundle bundle) {
 		TopicSelectionFragment topicSelectionFragment = new TopicSelectionFragment();
+		topicSelectionFragment.setArguments(bundle);
 		switchFragment(topicSelectionFragment);
 	}
 
 	private void switchFragment(Fragment fragment) {
 		getActivity().getSupportFragmentManager()
 				.beginTransaction()
-				.add(R.id.layout_root, fragment)
+				.replace(R.id.layout_root, fragment)
 				.commit();
 	}
 
