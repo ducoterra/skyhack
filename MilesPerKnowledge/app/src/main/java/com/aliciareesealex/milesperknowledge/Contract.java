@@ -49,7 +49,8 @@ public interface Contract {
 		}
 
 		interface SearchAirportFragmentPresenter extends MPKPresenter {
-
+//			void getStartAndEndDest();
+			void validateLocation(String startLoc, String endLoc);
 		}
 
 
