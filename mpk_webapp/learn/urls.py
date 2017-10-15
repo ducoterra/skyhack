@@ -3,5 +3,4 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.search, name = 'search'),
-    url(r'^progress/$', views.courseProgress, name = 'progress')
 ]

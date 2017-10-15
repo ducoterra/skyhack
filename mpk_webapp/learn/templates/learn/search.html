@@ -10,21 +10,34 @@ KEEP IT UNDER 80 COLUMNS (as much as possible)
     <meta name = 'viewport' content = 'width = device-width' initial-scale=1 meta-charset = "utf-8">
     {% load staticfiles %}
 </head>
+<style>
+    body {
+        background-image: url("{% static 'learn/assets/background.png' %}");
+    }
+</style>
 
 <body>
-    <p>{{flight_time}}</p>
+
+    <div class = heading>
+        <h1 class = "col-xs-8 col-xs-offset-2 title">Miles Per Knowledge</h1>
+        <h4 class = "col-xs-8 col-xs-offset-2 subtitle">learn while you fly</h4>
+        <h5 class = "col-xs-8 col-xs-offset-2">Enter your flight information to
+                                                see what you could learn!</h5>
+    </div>
     <form class = "col-xs-12 test" method="POST">
         {% csrf_token %}
         <input  name = "depart_id" id = "depart_id"
-                class = "col-xs-6 col-xs-offset-3 input" placeholder= "Departure Airport">
+                class = "col-xs-6 col-md-4 col-md-offset-4 col-xs-offset-3 input"
+                placeholder= "Departure Airport / City">
         </input>
         <input  name = "arrive_id" id = "arrive_id"
-                class = "col-xs-6 col-xs-offset-3 input" placeholder= "Arrival Airport">
+                class = "col-xs-6 col-md-4 col-md-offset-4 col-xs-offset-3 input"
+                placeholder= "Arrival Airport / City">
         </input>
         <button id = "submit_flight_btn"
                 name = "search_flight" type="submit"
-                class = "col-xs-4 col-xs-offset-4 button">
-            add</button>
+                class = "col-xs-4 col-md-2 col-md-offset-5 col-xs-offset-4 button">
+            Go</button>
     </form>
 </body>
 
