@@ -10,16 +10,28 @@ KEEP IT UNDER 80 COLUMNS (as much as possible)
     <meta name = 'viewport' content = 'width = device-width' initial-scale=1 meta-charset = "utf-8">
     {% load staticfiles %}
 </head>
-
+<style>
+    body {
+        background-image: url("{% static 'learn/assets/background.png' %}");
+    }
+</style>
 <body>
-    <h1>hello</h1>
-    <p>{{flight_time}}</p>
-    <form class = "col-xs-12 test" method="POST">
-        {% csrf_token %}
-        {% for topic in topicList %}
-        <p>topic</p>
+    <div class = heading>
+        <h1 class = "col-xs-12 col-sm-8 col-sm-offset-2 title">Flight Time: {{str_time}}</h1>
+        {% for topic in topic_list %}
+        <form class = "col-xs-12 test" method="POST">
+            {% csrf_token %}
+            <button id = "{{topic}}"
+                name = "search_course" type="submit" value = "{{topics}}"
+                class = "button col-xs-12 col-sm-4 col-md-2 col-md-offset-5 col-sm-offset-4"
+                style  = "border: 2px solid black;
+                            border-radius: 10px;
+                            margin-top: 20px;
+                            padding: 10px;
+                            background-color: white;">
+            {{topic}}</button>
+        </form>
         {% endfor %}
-    </form>
 </body>
 
 <!-- Bootstrap Resources -->
@@ -27,6 +39,6 @@ KEEP IT UNDER 80 COLUMNS (as much as possible)
 <link rel='stylesheet' href="{% static 'learn/bootstrap/css/bootstrap.min.css' %}" type ='text/css'/>
 <script src = "{% static 'learn/bootstrap/js/bootstrap.min.js' %}"></script>
 <!-- Dashboard Resources -->
-<link rel='stylesheet' href="{% static 'learn/search.css' %}" type = 'text/css'/>
-<script src = "{% static 'learn/search.js' %}"></script>
+<link rel='stylesheet' href="{% static 'learn/topics.css' %}" type = 'text/css'/>
+<script src = "{% static 'learn/topics.js' %}"></script>
 </html>

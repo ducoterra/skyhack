@@ -6,6 +6,12 @@ Contains the methods for dealing with khan academy api data
 '''
 import requests, json
 
+def getTopics():
+    return ['math', 'science', 'economics-finance-domain',
+    'humanities', 'computing', 'test-prep', 'educator-test',
+    'partner-content', 'talks-and-interviews', 'college-careers-more',
+    'talent-search', 'resources', 'mappers']
+
 def getVideoSelection(subject = None):
     '''
     takes a string subject
@@ -52,6 +58,6 @@ def getVideoSelection(subject = None):
                     courseList.append(video[0]['translated_title'] + ", " + str(video[0]['duration']))
                     # print(courseList)
                 except:
-                    # print('')
+                    print('')
                 if len(courseList) == 10:
                     return courseList

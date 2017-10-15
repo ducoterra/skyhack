@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .flightaware import *
+from .khan import *
 
 def search(request):
     '''
@@ -31,10 +32,27 @@ def checkRequest(request, siteDict):
     for more info.
     '''
     if request.method == 'POST':
+
         if 'search_flight' in request.POST:
             depart_id = request.POST['depart_id'].strip().upper()
             arrive_id = request.POST['arrive_id'].strip().upper()
-            time = getFlightInfo(startId = depart_id, endId = arrive_id)
+            flighttime = getFlightInfo(startId = depart_id, endId = arrive_id)
             siteDict.update({'flight_time' : time})
+            hours = str(flighttime // 60)
+            minutes = flighttime % 60
+            if minutes < 10:
+                minutes = str(minutes) + '0'
+            else:
+                minutes = str(minutes)
+            strTime = hours + ":" + minutes
+            siteDict.update({'str_time' : strTime})
+            siteDict.update({'topic_list' : getTopics()})
             siteDict.update({'redirect' : 'topics'})
+
+        if 'search_course' in request.POST:
+            selection = request.POST['search_course']
+            print(selection)
+            videoList = getVideoSelection(subject = selection)
+            siteDict.update({'video_list' : videoList})
+            siteDict.update({'redirect' : 'courses'})
     return siteDict
