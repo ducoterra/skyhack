@@ -19,6 +19,6 @@ public class TopicActivity extends AppCompatActivity implements Contract.MPKView
 	protected void onStop() {
 		super.onStop();
 		MySqlDB sqlDB = new MySqlDB();
-		sqlDB.closeConnectionToDatabase();
+//		sqlDB.closeConnectionToDatabase();
 	}
 }

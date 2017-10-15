@@ -5,6 +5,7 @@
  */
 package com.aliciareesealex.milesperknowledge.ui;
 
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,8 +19,10 @@ import android.widget.Toast;
 
 import com.aliciareesealex.milesperknowledge.Contract;
 import com.aliciareesealex.milesperknowledge.R;
-import com.aliciareesealex.milesperknowledge.util.MySqlDB;
 import com.google.firebase.analytics.FirebaseAnalytics;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,14 +55,10 @@ public class MainActivity extends AppCompatActivity implements Contract.MPKView.
 //		Binds All views
 		ButterKnife.bind(this);
 
-//		Connect to DB
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				MySqlDB sqlDB = new MySqlDB();
-				sqlDB.connectToDatabase(getApplicationContext());
-			}
-		}).start();
+//		Checks to see if the dbInfo was already written to the device
+		if (!new File(getFilesDir() + "/dbinfo").exists())
+			writeDBInfoToFile();
+
 //		Switches to Search By Airport fragment
 		switchToSearchFragment();
 //		Button root = findViewById(R.id.layout_root); // todo FORCES CRASH
@@ -139,6 +138,19 @@ public class MainActivity extends AppCompatActivity implements Contract.MPKView.
 				.beginTransaction()
 				.add(R.id.layout_root, searchAirportFragment, SearchAirportFragment.TAG)
 				.commit();
+	}
+
+	private void writeDBInfoToFile() {
+		String filename = "dbInfo";
+		String writeLine = "skyhack\neacss".trim();
+		FileOutputStream outputStream;
+		try {
+			outputStream = getApplicationContext().openFileOutput(filename, Context.MODE_PRIVATE);
+			outputStream.write(writeLine.getBytes());
+			outputStream.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

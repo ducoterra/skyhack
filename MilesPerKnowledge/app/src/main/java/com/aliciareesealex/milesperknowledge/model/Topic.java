@@ -48,4 +48,9 @@ public class Topic implements Contract.MPKModel.TopicModel {
     public void setSubject(String subject) {
         this.subject = subject;
     }
+
+	@Override
+	public void connectToDB() {
+
+	}
 }

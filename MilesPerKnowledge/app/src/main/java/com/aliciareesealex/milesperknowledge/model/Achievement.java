@@ -39,4 +39,9 @@ public class Achievement implements Contract.MPKModel.AchievementModel {
     public void setPoints(int points) {
         this.points = points;
     }
+
+	@Override
+	public void connectToDB() {
+
+	}
 }

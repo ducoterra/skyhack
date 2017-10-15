@@ -1,5 +1,9 @@
 package com.aliciareesealex.milesperknowledge;
 
+import android.content.Context;
+
+import java.util.List;
+
 /**
  * Name: Alex Oladele
  * Unique-ID: OLADELAA
@@ -23,7 +27,9 @@ public interface Contract {
 		}
 
 		interface SearchAirportFragmentView extends MPKView {
+			void showError();
 
+			void goToNextScreen();
 		}
 
 		interface TopicSelectionFragmentView extends MPKView {
@@ -36,6 +42,8 @@ public interface Contract {
 	}
 
 	interface MPKPresenter {
+		void connectToDB();
+
 		interface TopicActivityPresenter extends MPKPresenter {
 
 		}
@@ -49,8 +57,12 @@ public interface Contract {
 		}
 
 		interface SearchAirportFragmentPresenter extends MPKPresenter {
-//			void getStartAndEndDest();
-			void validateLocation(String startLoc, String endLoc);
+			//			void getStartAndEndDest();
+			 void validateLocation(List<String> results);
+			List<String> checkInput(Context context, String startLoc, String endLoc);
+
+			String cleanInput(String input);
+
 		}
 
 
@@ -64,13 +76,27 @@ public interface Contract {
 	}
 
 	interface MPKModel {
+		void connectToDB();
+
 		interface AchievementModel extends MPKModel {
 
 		}
 
 		interface AirportModel extends MPKModel {
 
+			String getAirportCode(Context context, String location);
+
+			void setAirportCode(String airportCode);
+
+			String getState();
+
+			void setState(String state);
+
+			String getCity();
+
+			void setCity(String city);
 		}
+
 
 		interface FlightModel extends MPKModel {
 
@@ -84,4 +110,5 @@ public interface Contract {
 
 		}
 	}
+
 }

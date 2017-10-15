@@ -48,4 +48,9 @@ public class User implements Contract.MPKModel.UserModel {
     public void setUserID(int userID) {
         this.userID = userID;
     }
+
+	@Override
+	public void connectToDB() {
+
+	}
 }
