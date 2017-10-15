@@ -33,12 +33,15 @@ def getVideos(subject = None):
     '''
     r = requests.get('http://www.khanacademy.org/api/v1/topic/'
                         + subject + '/videos')
-    data = r.json()
-    courseList = []
+    try:
+        data = r.json()
+        courseList = []
 
-    for video in data:
-        courseList.append(video['translated_title'] + ',' + str(video['duration']))
-    return courseList
+        for video in data:
+            courseList.append(video['translated_title'] + ',' + str(video['duration']))
+        return courseList
+    except:
+        return None
 
 def drillDown(subject = None):
     '''
