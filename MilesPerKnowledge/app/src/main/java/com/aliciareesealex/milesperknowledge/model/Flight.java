@@ -14,5 +14,38 @@ public class Flight extends MySqlDB implements Contract.MPKModel.FlightModel {
     private String endCode;
     private int time;
 
+    public Flight() {
+    }
 
+    public int getFlightNumber() {
+        return flightNumber;
+    }
+
+    public void setFlightNumber(int flightNumber) {
+        this.flightNumber = flightNumber;
+    }
+
+    public String getStartCode() {
+        return startCode;
+    }
+
+    public void setStartCode(String startCode) {
+        this.startCode = startCode;
+    }
+
+    public String getEndCode() {
+        return endCode;
+    }
+
+    public void setEndCode(String endCode) {
+        this.endCode = endCode;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
 }
